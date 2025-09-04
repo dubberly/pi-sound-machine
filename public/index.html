@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Sound Machine</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Sound Machine</h1>
+            <div class="status-info">
+                <div class="status-indicator">
+                    <div class="status-light ready" id="statusLight"></div>
+                    <span class="status-text" id="statusText">Ready</span>
+                </div>
+                <div class="current-info" id="currentInfo">No sound playing</div>
+            </div>
+        </header>
+
+        <nav class="tab-nav">
+            <button class="tab-button active" data-tab="play">
+                <span class="tab-icon">▶</span>
+                <span class="tab-label">Play Sounds</span>
+            </button>
+            <button class="tab-button" data-tab="timer">
+                <span class="tab-icon">⏰</span>
+                <span class="tab-label">Sleep Timer</span>
+            </button>
+        </nav>
+
+        <main class="main">
+            <!-- Timer Display (shows when active) -->
+            <div id="timerDisplay" class="timer-display" style="display: none;">
+                Timer: 5:00
+            </div>
+            
+            <!-- Play Sounds Tab -->
+            <div class="tab-content active" id="playTab">
+                <div class="volume-control">
+                    <label class="volume-label">Volume</label>
+                    <div class="volume-slider-container">
+                        <input type="range" id="volumeSlider" class="volume-slider" 
+                               min="0" max="100" value="70" step="1">
+                        <span class="volume-value" id="volumeValue">70%</span>
+                    </div>
+                </div>
+
+                <div class="sound-grid">
+                    <button class="sound-button" data-sound="white">
+                        <div class="sound-title">White Noise</div>
+                        <div class="sound-description">Balanced across all frequencies</div>
+                    </button>
+                    
+                    <button class="sound-button" data-sound="brown">
+                        <div class="sound-title">Brown Noise</div>
+                        <div class="sound-description">Deep, low-frequency rumble</div>
+                    </button>
+                    
+                    <button class="sound-button" data-sound="pink">
+                        <div class="sound-title">Pink Noise</div>
+                        <div class="sound-description">Gentle, natural sound</div>
+                    </button>
+                    
+                    <button class="sound-button" data-sound="dryer">
+                        <div class="sound-title">Dryer Noise</div>
+                        <div class="sound-description">Consistent mechanical hum</div>
+                    </button>
+                    
+                    <button class="sound-button" data-sound="ocean">
+                        <div class="sound-title">Ocean Waves</div>
+                        <div class="sound-description">Calming wave sounds</div>
+                    </button>
+                </div>
+
+                <button class="stop-button" id="stopButton" disabled>Stop</button>
+            </div>
+
+            <!-- Sleep Timer Tab -->
+            <div class="tab-content" id="timerTab">
+                <div class="timer-section">
+                    <label class="section-label">Select Sound</label>
+                    <div class="sound-selector">
+                        <div class="sound-cards">
+                            <div class="sound-card" data-sound="white">
+                                <div class="card-title">White Noise</div>
+                            </div>
+                            <div class="sound-card" data-sound="brown">
+                                <div class="card-title">Brown Noise</div>
+                            </div>
+                            <div class="sound-card" data-sound="pink">
+                                <div class="card-title">Pink Noise</div>
+                            </div>
+                            <div class="sound-card" data-sound="dryer">
+                                <div class="card-title">Dryer Noise</div>
+                            </div>
+                            <div class="sound-card" data-sound="ocean">
+                                <div class="card-title">Ocean Waves</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timer-section">
+                    <label class="section-label">Stop Time (Alarm)</label>
+                    <div class="time-selector">
+                        <div class="alarm-time-picker">
+                            <label class="time-label">Set alarm time:</label>
+                            <input type="time" id="alarmTime" class="alarm-time-input" value="08:00">
+                            <div class="time-info">
+                                <span id="timeRemaining">Time until alarm: calculating...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timer-section">
+                    <label class="section-label">Volume</label>
+                    <div class="volume-slider-container">
+                        <input type="range" id="timerVolume" class="volume-slider" 
+                               min="0" max="100" value="70" step="1">
+                        <span class="volume-value" id="timerVolumeValue">70%</span>
+                    </div>
+                </div>
+
+                <div class="timer-controls">
+                    <button class="timer-button primary" id="startTimerButton">Start Timer</button>
+                    <button class="timer-button secondary" id="cancelTimerButton" disabled>Cancel Timer</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="connection-status">
+                <div class="connection-light" id="connectionLight"></div>
+                <span id="connectionStatus">Checking...</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
