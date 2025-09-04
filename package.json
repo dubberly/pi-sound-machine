@@ -1,5 +1,5 @@
 {
-  "name": "raspberry-pi-sound-machine",
+  "name": "pi-sound-machine",
   "version": "1.0.0",
   "description": "A web-based sound machine for Raspberry Pi Zero 2W with 2x 4ohm 3W speakers",
   "main": "server.js",
@@ -15,7 +15,7 @@
     "sleep",
     "relaxation"
   ],
-  "author": "Slade",
+  "author": "Slade Dubberly",
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.2"
